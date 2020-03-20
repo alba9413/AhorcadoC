@@ -104,5 +104,11 @@
   <ItemGroup>
     <None Include="Resources\ahorcado_fin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teddy-bear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cute-baby-bear.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
