@@ -13,18 +13,33 @@ namespace AhorcadoC
     public partial class Form1 : Form
     {
         //almacena la palabra que hay que adivinar
-        String palabraOculta = "CETYS";
+        String palabraOculta = palabraElegida();
         //variable que almacena el numero de fallos
         int numeroFallos = 0;
+        Boolean final = false;
 
         //constructor
         public Form1()
         {
             InitializeComponent();
+            String guiones = "";
+            for (int i = 0; i< palabraOculta.Length; i++)
+            {
+                guiones = guiones + "_ ";
+            }
+            label1.Text = guiones;
+        }
+
+        public static String palabraElegida()
+        {
+            String[] listaPalabras = {"CETYS","FURBY", "COSA","VIRUS"};
+            Random aleatorio = new Random();
+            int posicion = aleatorio.Next(listaPalabras.Length);
+            return listaPalabras[posicion].ToUpper();
         }
 
         //Todos los botones al hacer click vienen a este método
-        private void button1_Click(object sender, EventArgs e)
+        private void clickLetra(object sender, EventArgs e)
         {
             //casteo el objeto a botón. Sólo va a poder ser botón porque 
             //sólo se genera en los botones
@@ -36,7 +51,7 @@ namespace AhorcadoC
             if (palabraOculta.Contains(letra))
             {
                 int posicion = palabraOculta.IndexOf(letra);
-                label1.Text = label1.Text.Remove(2 * posicion, 1).Insert(2 * posicion, letra);
+                label1.Text = label1.Text.Remove( 2*posicion, 1).Insert( 2*posicion, letra);
 
             }
             else
